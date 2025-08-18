@@ -1,0 +1,10 @@
+# Notas sobre anotaciones de tipo (type hints) en Python
+
+- Las anotaciones de tipo permiten indicar el tipo esperado de variables, parámetros y valores de retorno en funciones, mejorando la legibilidad y facilitando el mantenimiento.
+- No afectan la ejecución del código; son solo sugerencias para desarrolladores y herramientas externas.
+- Ejemplo: def suma(a: int, b: int) -> int: return a + b
+- Se pueden usar tipos combinados: Union[int, str], Optional[str], list[int].
+- Ayudan a detectar errores antes de ejecutar el código usando herramientas como mypy o pyright.
+- No garantizan la corrección en tiempo de ejecución; Python no valida los tipos automáticamente.
+- Facilitan la documentación y el trabajo en equipos grandes.
+- Herramientas como IDEs, linters y analizadores estáticos aprovechan las anotaciones para autocompletado y chequeo de tipos.

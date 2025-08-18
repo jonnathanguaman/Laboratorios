@@ -1,0 +1,10 @@
+# Documentación de utilidades_numericas.py
+
+API pública:
+- suma_segura(a, b): Suma dos números, validando tipos.
+- division_segura(a, b): Divide a entre b, validando tipos y divisor distinto de cero.
+- es_positivo(n): Verifica si un número es positivo.
+- promedio(lista): Calcula el promedio de una lista de números, validando que no esté vacía y que todos sean numéricos.
+
+Motivo de la separación como módulo independiente:
+Separar las utilidades numéricas en un módulo permite reutilizar funciones comunes en distintos proyectos, facilita el mantenimiento y la organización del código, y promueve buenas prácticas de encapsulamiento y documentación. Así, cualquier script puede importar el módulo y aprovechar sus validaciones y operaciones seguras sin duplicar lógica.
