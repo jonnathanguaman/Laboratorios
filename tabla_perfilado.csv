@@ -1,0 +1,15 @@
+Métrica,Ecuador,Spain,Total
+Información General,2069 registros,2069 registros,4138 registros
+Tipos de Datos,Disponible,Disponible,9/9 columnas principales
+Min new_cases - Ecuador,0.0,-,0
+Max new_cases - Ecuador,11536.0,-,"11,536"
+Min new_cases - Spain,-,0.0,0
+Max new_cases - Spain,-,956506.0,"956,506"
+% Faltantes new_cases - Ecuador,1.3%,-,27/2069
+% Faltantes new_cases - Spain,-,38.0%,786/2069
+% Faltantes people_vaccinated - Ecuador,71.9%,-,1488/2069
+% Faltantes people_vaccinated - Spain,-,83.3%,1723/2069
+Fecha inicio - Ecuador,2020-01-01,-,2020-01-01
+Fecha fin - Ecuador,2025-12-28,-,2025-12-28
+Fecha inicio - Spain,-,2020-01-01,2020-01-01
+Fecha fin - Spain,-,2025-12-28,2025-12-28
