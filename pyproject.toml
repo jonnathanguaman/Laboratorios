@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "covid-pipeline"
+version = "0.1.0"
+description = "Pipeline de análisis COVID-19 con Dagster"
+dependencies = [
+    "dagster",
+    "pandas",
+    "requests",
+    "numpy",
+    "matplotlib",
+    "seaborn",
+    "plotly"
+]
+
+[tool.dagster]
+module_name = "definitions"

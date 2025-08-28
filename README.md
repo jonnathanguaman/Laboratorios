@@ -105,12 +105,98 @@ pip install pandas numpy matplotlib seaborn requests plotly jupyter
 - Diferencias en la cobertura y frecuencia de reporte
 - Proyecciones hasta 2025 (datos futuros estimados)
 
+## Paso 2 - Lectura de Datos en Dagster + Chequeos de Entrada ✅
+
+### Implementación Completada
+
+#### 🏗️ **Arquitectura del Pipeline**
+
+**Asset Principal: `leer_datos`**
+- Descarga datos desde URL canónica de OWID
+- Manejo de errores con reintentos
+- Configuración flexible (URL, timeouts, reintentos)
+- Retorna DataFrame sin transformaciones
+
+**Asset Checks Implementados:**
+1. **`fechas_no_futuras`** - Verifica max(date) ≤ hoy
+2. **`columnas_clave_no_nulas`** - Valida existencia de country, date, population
+3. **`unicidad_pais_fecha`** - Verifica unicidad de (country, date)
+4. **`poblacion_positiva`** - Asegura population > 0
+5. **`casos_nuevos_validos`** - Valida new_cases (permite negativos documentados)
+
+**Asset de Resumen: `resumen_chequeos_calidad`**
+- Tabla consolidada con resultados de todos los chequeos
+- Formato: nombre_regla, estado, filas_afectadas, notas
+
+#### 📊 **Resultados de Chequeos de Calidad**
+
+**Dataset analizado**: 523,599 registros, 61 columnas
+
+| Regla | Estado | Filas Afectadas | Severidad | Notas |
+|-------|--------|-----------------|-----------|-------|
+| Fechas no futuras | ❌ FALLÓ | 1,365 | WARN | Fechas futuras pueden ser proyecciones válidas |
+| Columnas clave no nulas | ✅ PASÓ | 0 | WARN | Todas las columnas clave existen |
+| Unicidad país-fecha | ✅ PASÓ | 0 | WARN | Combinaciones (country, date) únicas |
+| Población positiva | ✅ PASÓ | 0 | WARN | Población min: 501, max: 8B+ |
+| Casos nuevos válidos | ✅ PASÓ | 182 | WARN | Casos extremos detectados (outliers) |
+
+**Resumen**: 4/5 chequeos pasaron ✅
+
+#### 🔧 **Decisiones de Calidad de Datos**
+
+1. **Fechas futuras (1,365 registros)**: 
+   - **Decisión**: CONTINUAR con WARNING
+   - **Justificación**: Pueden ser proyecciones o estimaciones válidas de OWID
+
+2. **Casos extremadamente altos (182 registros)**:
+   - **Decisión**: CONTINUAR con WARNING  
+   - **Justificación**: Pueden ser picos reales durante oleadas pandémicas
+
+3. **Población faltante (3.2% registros)**:
+   - **Decisión**: CONTINUAR con WARNING
+   - **Justificación**: No impide análisis principal, se puede imputar después
+
+#### 🛠️ **Estructura de Archivos Dagster**
+
+```
+covid_pipeline/
+├── __init__.py         # Definiciones de Dagster
+├── assets.py           # Assets y Asset Checks
+definitions.py          # Configuración principal
+test_pipeline.py        # Pruebas locales
+run_pipeline.py         # Ejecutor interactivo
+```
+
+#### 🚀 **Uso del Pipeline**
+
+**Opción 1: Pruebas locales (recomendado)**
+```bash
+python test_pipeline.py
+```
+
+**Opción 2: Pipeline completo con descarga**
+```bash
+python run_pipeline.py
+```
+
+**Opción 3: Interfaz web Dagster**
+```bash
+dagster dev
+# Navegar a http://localhost:3000
+```
+
+#### 📋 **Archivos Generados**
+
+- `resumen_chequeos_local.csv` ⭐ (tabla de chequeos de calidad)
+- Logs detallados en consola
+- Metadatos en Dagster UI (cuando se ejecuta)
+
+---
+
 ## Próximos Pasos
-- [ ] Análisis temporal de tendencias
-- [ ] Visualizaciones comparativas
-- [ ] Análisis de correlaciones
-- [ ] Modelado predictivo
-- [ ] Dashboard interactivo
+- [ ] Paso 3: Transformación y limpieza de datos
+- [ ] Paso 4: Análisis temporal y visualizaciones
+- [ ] Paso 5: Dashboard interactivo
 
 ---
 *Proyecto desarrollado como parte del análisis de datos COVID-19*
