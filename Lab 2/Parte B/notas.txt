@@ -1,0 +1,8 @@
+# Documentación paquete utilidades
+
+Importaciones absolutas: se usan desde fuera del paquete, por ejemplo, en main.py: from utilidades.cadenas import normalizar
+Importaciones relativas: se usan dentro de módulos del mismo paquete, por ejemplo, en numeros.py: from .cadenas import normalizar
+
+__init__.py reexporta funciones clave (normalizar, es_email, suma_segura, es_positivo) para facilitar el acceso directo desde el paquete. Esto mejora la usabilidad y centraliza la API pública.
+
+Usa importaciones absolutas para scripts externos y relativas para dependencias internas entre módulos del mismo paquete.
