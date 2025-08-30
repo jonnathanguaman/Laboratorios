@@ -18,6 +18,15 @@ venv.bak/
 owid-covid-data.csv
 
 # Archivos temporales
+.tmp_dagster_home*/
+dagster_home/
+*debug.csv
+test_*.py
+*_temp.py
+*_temporal.*
+*_202*.csv
+*_202*.xlsx
+*.log
 *.tmp
 *.temp
 .DS_Store

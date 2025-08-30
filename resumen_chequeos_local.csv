@@ -1,6 +1,0 @@
-nombre_regla,estado,filas_afectadas,notas
-Fechas no futuras,❌ FALLÓ,1365,❌ Se encontraron 1365 registros con fechas futuras
-Columnas clave no nulas,✅ PASÓ,0,✓ Todas las columnas clave existen y tienen datos
-Unicidad país-fecha,✅ PASÓ,0,"✓ Todas las combinaciones (country, date) son únicas"
-Población positiva,✅ PASÓ,0,✓ Todos los valores de población son positivos (min: 501)
-Casos nuevos válidos,✅ PASÓ,182,⚠️ Se encontraron 182 registros con casos extremadamente altos

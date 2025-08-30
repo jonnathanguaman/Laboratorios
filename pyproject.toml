@@ -8,12 +8,13 @@ version = "0.1.0"
 description = "Pipeline de análisis COVID-19 con Dagster"
 dependencies = [
     "dagster",
-    "pandas",
+    "pandas", 
     "requests",
     "numpy",
     "matplotlib",
-    "seaborn",
-    "plotly"
+    "seaborn", 
+    "plotly",
+    "openpyxl"
 ]
 
 [tool.dagster]
