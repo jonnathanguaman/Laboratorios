@@ -14,8 +14,9 @@ venv.bak/
 # Jupyter Notebook
 .ipynb_checkpoints
 
-# Archivos de datos grandes (mantener solo los procesados)
+# Archivos de datos grandes (se descargan automáticamente)
 owid-covid-data.csv
+covid.csv
 
 # Archivos temporales
 .tmp_dagster_home*/
