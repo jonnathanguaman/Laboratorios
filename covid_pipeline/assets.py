@@ -1054,12 +1054,12 @@ def chequeo_distribucion_tendencias_7d(metrica_factor_crec_7d: pd.DataFrame) -> 
                 "decrecimiento": int(decrecimiento),
                 "estable": int(estable),
                 "infinitos": int(infinitos),
-                "pct_crecimiento": round(pct_crecimiento, 2),
-                "pct_decrecimiento": round(pct_decrecimiento, 2),
-                "pct_estable": round(pct_estable, 2),
+                "pct_crecimiento": float(round(pct_crecimiento, 2)),
+                "pct_decrecimiento": float(round(pct_decrecimiento, 2)),
+                "pct_estable": float(round(pct_estable, 2)),
                 "tendencia_dominante": tendencia_nombre,
-                "pct_dominante": round(tendencia_dominante, 2),
-                "umbral_maximo": umbral_maximo
+                "pct_dominante": float(round(tendencia_dominante, 2)),
+                "umbral_maximo": float(umbral_maximo)
             }
         )
     else:
@@ -1073,12 +1073,12 @@ def chequeo_distribucion_tendencias_7d(metrica_factor_crec_7d: pd.DataFrame) -> 
                 "decrecimiento": int(decrecimiento),
                 "estable": int(estable),
                 "infinitos": int(infinitos),
-                "pct_crecimiento": round(pct_crecimiento, 2),
-                "pct_decrecimiento": round(pct_decrecimiento, 2),
-                "pct_estable": round(pct_estable, 2),
+                "pct_crecimiento": float(round(pct_crecimiento, 2)),
+                "pct_decrecimiento": float(round(pct_decrecimiento, 2)),
+                "pct_estable": float(round(pct_estable, 2)),
                 "tendencia_dominante": tendencia_nombre,
-                "pct_dominante": round(tendencia_dominante, 2),
-                "umbral_maximo": umbral_maximo
+                "pct_dominante": float(round(tendencia_dominante, 2)),
+                "umbral_maximo": float(umbral_maximo)
             }
         )
 
